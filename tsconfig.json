@@ -1,0 +1,14 @@
+{
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "types": [],
+    "target": "es6",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "jsx": "react"
+  }
+}

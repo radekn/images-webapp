@@ -26,6 +26,15 @@ module.exports = {
         use: ["file-loader?name=[path][name].[ext]"],
       },
       {
+        test: /\.scss?$/,
+        use: [
+          "file-loader?name=[path][name].css",
+          "extract-loader",
+          "css-loader",
+          "sass-loader",
+        ],
+      },
+      {
         test: /\.tsx?$/,
         exclude: resolve("node_modules"),
         use: ["ts-loader"],

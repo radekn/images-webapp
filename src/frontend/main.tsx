@@ -1,4 +1,5 @@
 import "./index.html";
+import "./main.scss";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { SearchResponse } from "../api";
@@ -19,10 +20,12 @@ const App: React.FunctionComponent = () => {
   }
 
   return (
-    <main>
-      <SearchForm onSearch={search} />
-      {response && <SearchResults data={response} />}
-    </main>
+    <>
+      <header>
+        <SearchForm onSearch={search} />
+      </header>
+      <main>{response && <SearchResults data={response} />}</main>
+    </>
   );
 };
 

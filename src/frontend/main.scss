@@ -1,0 +1,27 @@
+html,
+body {
+  margin: 0;
+}
+
+header {
+  background: white;
+  position: fixed;
+  box-sizing: border-box;
+  width: 100%;
+  top: 0;
+  padding: 8px;
+
+  input {
+    border-radius: 9999px;
+    border: 1px solid #cccccc;
+    padding: 8px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+main {
+  margin: 8px;
+  // TODO: There has to be a better way of doing fixed headers
+  margin-top: 50px;
+}

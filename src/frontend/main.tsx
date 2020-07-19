@@ -2,6 +2,7 @@ import "./index.html";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { SearchResponse } from "../api";
+import SearchResults from "./components/search-results";
 
 declare const API_URL: string;
 
@@ -15,11 +16,7 @@ const App: React.FunctionComponent = () => {
     });
   }, []);
 
-  return (
-    <>
-      API says: <pre>{JSON.stringify(response, null, 2)}</pre>
-    </>
-  );
+  return response ? <SearchResults data={response} /> : <></>;
 };
 
 ReactDOM.render(<App />, document.getElementById("react-root"));

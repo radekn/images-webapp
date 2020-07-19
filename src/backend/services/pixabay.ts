@@ -35,7 +35,6 @@ export async function search(phrase: string): Promise<SearchResults> {
   const pixabayResults: PixabaySearchResponse = await response.json();
   return pixabayResults.hits.map((hit) => ({
     id: hit.id,
-    title: hit.id,
     url: hit.pageURL,
     thumbnail: hit.previewURL,
   }));

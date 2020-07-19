@@ -35,7 +35,7 @@ const ProviderSearchResults: React.FunctionComponent<{
           <a href={item.url}>
             <figure>
               <img src={item.thumbnail} alt={item.title} />
-              <figcaption>{item.title}</figcaption>
+              {item.title && <figcaption>{item.title}</figcaption>}
             </figure>
           </a>
         </li>

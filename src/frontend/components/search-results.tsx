@@ -13,6 +13,7 @@ const SearchResults: React.FunctionComponent<Props> = ({ data }) => {
     <>
       <section>
         <h2>Giphy</h2>
+        <div className="giphy-attribution">Powered By GIPHY</div>
 
         <ProviderSearchResults results={data.giphy} />
       </section>

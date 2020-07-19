@@ -29,18 +29,18 @@ const ProviderSearchResults: React.FunctionComponent<{
   results: ISearchResults;
 }> = ({ results }) => {
   return (
-    <ul>
+    <>
       {results.map((item) => (
-        <li key={item.id}>
+        <article key={item.id}>
           <a href={item.url}>
             <figure>
               <img src={item.thumbnail} alt={item.title} />
               {item.title && <figcaption>{item.title}</figcaption>}
             </figure>
           </a>
-        </li>
+        </article>
       ))}
-    </ul>
+    </>
   );
 };
 

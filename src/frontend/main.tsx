@@ -1,22 +1,29 @@
 import "./index.html";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { SearchResponse } from "../api";
+import SearchForm from "./components/search-form";
 import SearchResults from "./components/search-results";
 
 declare const API_URL: string;
 
 const App: React.FunctionComponent = () => {
   const [response, setResponse] = useState<SearchResponse>();
-  useEffect(() => {
-    fetch(`${API_URL}/search?q=cat`).then(async (res) => {
+  function search(searchPhrase: string) {
+    const params = new URLSearchParams({ q: searchPhrase });
+    fetch(`${API_URL}/search?${params}`).then(async (res) => {
       if (res.ok) {
         setResponse(await res.json());
       }
     });
-  }, []);
+  }
 
-  return response ? <SearchResults data={response} /> : <></>;
+  return (
+    <main>
+      <SearchForm onSearch={search} />
+      {response && <SearchResults data={response} />}
+    </main>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById("react-root"));

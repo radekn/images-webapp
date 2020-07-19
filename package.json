@@ -7,7 +7,16 @@
     "typescript": "^3.9.6",
     "ts-node": "^8.10.2"
   },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "file-loader": "^6.0.0",
+    "ts-loader": "^8.0.1"
+  },
   "scripts": {
-    "start": "ts-node src/backend/server.ts"
+    "start": "ts-node src/backend/server.ts",
+    "frontend-dev": "webpack-dev-server --port 8080",
+    "frontend-build": "webpack --mode production"
   }
 }

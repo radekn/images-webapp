@@ -1,5 +1,6 @@
 export interface SearchResponse {
   giphy: SearchResults;
+  pixabay: SearchResults;
 }
 
 export type SearchResults = Array<SearchResultItem>;

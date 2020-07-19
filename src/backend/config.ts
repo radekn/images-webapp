@@ -9,3 +9,4 @@ function requireEnvVariable(name: string): string {
 export const port: number = Number(process.env.PORT ?? 8000);
 export const host: string = process.env.HOST ?? "localhost";
 export const giphyApiKey: string = requireEnvVariable("GIPHY_API_KEY");
+export const pixabayApiKey: string = requireEnvVariable("PIXABAY_API_KEY");

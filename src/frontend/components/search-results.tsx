@@ -10,11 +10,18 @@ interface Props {
 
 const SearchResults: React.FunctionComponent<Props> = ({ data }) => {
   return (
-    <section>
-      <h2>Giphy</h2>
+    <>
+      <section>
+        <h2>Giphy</h2>
 
-      <ProviderSearchResults results={data.giphy} />
-    </section>
+        <ProviderSearchResults results={data.giphy} />
+      </section>
+      <section>
+        <h2>Pixabay</h2>
+
+        <ProviderSearchResults results={data.pixabay} />
+      </section>
+    </>
   );
 };
 

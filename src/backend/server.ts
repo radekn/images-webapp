@@ -3,6 +3,7 @@ import Router from "@koa/router";
 import cors from "@koa/cors";
 import { port, host } from "./config";
 import { search as giphySearch } from "./services/giphy";
+import { search as pixabaySearch } from "./services/pixabay";
 import HttpError from "./errors/http-error";
 import type { SearchResponse } from "../api";
 
@@ -12,8 +13,13 @@ const router = new Router();
 router.get("/search", async (ctx) => {
   const searchPhrase = ctx.request.query.q;
   try {
+    const [giphyResults, pixabayResults] = await Promise.all([
+      giphySearch(searchPhrase),
+      pixabaySearch(searchPhrase),
+    ]);
     const results: SearchResponse = {
-      giphy: await giphySearch(searchPhrase),
+      giphy: giphyResults,
+      pixabay: pixabayResults,
     };
     ctx.body = results;
   } catch (err) {
